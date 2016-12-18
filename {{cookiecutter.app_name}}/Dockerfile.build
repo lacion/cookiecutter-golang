@@ -13,4 +13,4 @@ ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 WORKDIR /gopath/src/github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
 
-RUN make build-alpine
+CMD ["make","build-alpine"]
