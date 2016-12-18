@@ -13,25 +13,25 @@ help:
 	@echo 'Management commands for {{cookiecutter.app_name}}:'
 	@echo
 	@echo 'Usage:'
-	@echo '    make build    		Compile the project.'
-	@echo '    make build-alpine    compile optimized for alpine linux.'
-	@echo '    make build-docker    build inside an alpine docker container'
-	@echo '    make package		    build final docker image with just the go binary inside'
-	@echo '    make tag		    	tag image created by package with latest, git commit and version'
-	@echo '    make test     		Run tests on a compiled project.'
-	@echo '    make push     		push tagged images to registry'
-	@echo '    make clean    		Clean the directory tree.'
+	@echo '    make build           Compile the project.'
+	@echo '    make build-alpine    Compile optimized for alpine linux.'
+	@echo '    make build-docker    Build inside an alpine docker container'
+	@echo '    make package         Build final docker image with just the go binary inside'
+	@echo '    make tag             Tag image created by package with latest, git commit and version'
+	@echo '    make test            Run tests on a compiled project.'
+	@echo '    make push            Push tagged images to registry'
+	@echo '    make clean           Clean the directory tree.'
 	@echo
 
 build:
 	@echo "building ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
-	go build -ldflags "-X main.GitCommit={GIT_COMMIT}${GIT_DIRTY}" -o bin/${BIN_NAME} main.go
+	go build -ldflags "-X main.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X main.VersionPrerelease=DEV" -o bin/${BIN_NAME}
 
 build-alpine:
 	@echo "building ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
-	go build -ldflags '-w -linkmode external -extldflags "-static" -X main.GitCommit={GIT_COMMIT}${GIT_DIRTY}' -o bin/${BIN_NAME} main.go
+	go build -ldflags '-w -linkmode external -extldflags "-static" -X main.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X main.VersionPrerelease=VersionPrerelease=RC' -o bin/${BIN_NAME}
 
 build-docker:
 	@echo "building ${BIN_NAME} ${VERSION}"
