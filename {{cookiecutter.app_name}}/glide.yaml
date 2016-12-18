@@ -1,2 +1,4 @@
 package: github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
-import: []
+import:
+- package: github.com/spf13/viper
+- package: github.com/Sirupsen/logrus

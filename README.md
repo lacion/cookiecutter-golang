@@ -20,3 +20,5 @@ Run `make help` to see the available management commands, or just run `make` to 
 - Generous `Makefile` with management commands
 - Works with either in a global `GOPATH` or with a local vendor directory
 - Uses [glide](https://github.com/Masterminds/glide) for dependency management
+- Uses [viper](https://github.com/spf13/viper) for env var config
+- Uses [logrus](https://github.com/spf13/viper) for logging
