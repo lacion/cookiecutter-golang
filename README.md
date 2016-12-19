@@ -1,6 +1,6 @@
 # cookiecutter-golang
 
-A Go project template for [cookiecutter](https://github.com/audreyr/cookiecutter), Use it to make a new project with the recommended layout and tooling all built-in from scratch.
+A Go project template for [cookiecutter](https://github.com/audreyr/cookiecutter), Use it to make a new project built from scratch.
 
 ## Use it now
 
