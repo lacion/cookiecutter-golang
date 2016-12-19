@@ -8,6 +8,17 @@ If you don't have `cookiecutter` installed, you'll need to install that first us
 
 ```console
 $ pip install cookiecutter
+```
+
+alternatively you can install `cookiecutter` via brew
+
+```console
+$ brew intall cookiecutter
+```
+
+finally to run it based on this template just
+
+```console
 $ cookiecutter https://github.com/lacion/cookiecutter-golang.git
 ```
 
