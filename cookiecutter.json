@@ -2,6 +2,7 @@
     "github_username": "lacion",
     "app_name": "mygolangproject",
     "project_short_description": "A Golang project.",
+    "docker_hub_username": "lacion",
     "docker_image": "lacion/docker-alpine:latest",
     "docker_build_image": "lacion/docker-alpine:gobuildimage"
 }
