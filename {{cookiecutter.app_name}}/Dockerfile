@@ -1,4 +1,4 @@
-FROM lacion/docker-alpine:latest
+FROM {{cookiecutter.docker_image}}
 
 ARG GIT_COMMIT
 ARG VERSION

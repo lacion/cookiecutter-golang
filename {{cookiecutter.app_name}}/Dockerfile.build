@@ -1,4 +1,4 @@
-FROM lacion/docker-alpine:gobuildimage
+FROM {{cookiecutter.docker_build_image}}
 
 LABEL app="build-{{cookiecutter.app_name}}"
 LABEL REPO="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}"
