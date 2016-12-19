@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 )
 
 func main() {
@@ -16,6 +17,7 @@ func main() {
 		if VersionPrerelease != "" {
 			fmt.Println("Version PreRelease:", VersionPrerelease)
 		}
+		os.Exit(0)
 	}
 
 	fmt.Println("Hello.")
