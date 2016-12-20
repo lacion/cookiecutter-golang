@@ -13,7 +13,7 @@ $ pip install cookiecutter
 alternatively you can install `cookiecutter` via brew
 
 ```console
-$ brew intall cookiecutter
+$ brew install cookiecutter
 ```
 
 finally to run it based on this template just
