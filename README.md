@@ -33,3 +33,7 @@ Run `make help` to see the available management commands, or just run `make` to 
 - Uses [glide](https://github.com/Masterminds/glide) for dependency management
 - Uses [viper](https://github.com/spf13/viper) for env var config
 - Uses [logrus](https://github.com/sirupsen/logrus) for logging
+
+## Projects build with cookiecutter-golang
+
+- [iothub](https://github.com/lacion/iothub) websocket multiroom server for IoT
