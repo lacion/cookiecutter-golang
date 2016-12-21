@@ -15,6 +15,7 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 - Can use [logrus](https://github.com/sirupsen/logrus) for logging
 - Can creates dockerfile for building go binary and dockerfile for final go binary (no code in final container)
 - If docker is used adds docker management commands to makefile
+- Option of TravisCI, CircleCI or None
 
 ## Constraints
 
@@ -59,6 +60,11 @@ use_docker [y]: y
 use_git [y]: y
 use_logrus_logging [y]: y
 use_viper_config [y]: y
+Select use_ci:
+1 - travis
+2 - circle
+3 - none
+Choose from 1, 2, 3 [1]: 1
 ```
 
 Enter the project and take a look around:
@@ -67,10 +73,10 @@ $ cd echoserver/
 $ ls
 ```
 
-Run `make help` to see the available management commands, or just run `make` to build your project.
+Run `make help` to see the available management commands, or just run `make build` to build your project.
 ```console
 $ make help
-$ make
+$ make build
 $ ./bin/echoserver
 ```
 

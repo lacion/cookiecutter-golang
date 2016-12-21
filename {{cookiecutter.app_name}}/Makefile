@@ -7,13 +7,14 @@ GIT_COMMIT=$(shell git rev-parse HEAD)
 GIT_DIRTY=$(shell test -n "`git status --porcelain`" && echo "+CHANGES" || true)
 IMAGE_NAME := "{{cookiecutter.docker_hub_username}}/{{cookiecutter.app_name}}"
 
-default: build
+default: test
 
 help:
 	@echo 'Management commands for {{cookiecutter.app_name}}:'
 	@echo
 	@echo 'Usage:'
 	@echo '    make build           Compile the project.'
+	@echo '    make get-deps        runs glide install, mostly used for ci.'
 	{% if cookiecutter.use_docker == "y" %}@echo '    make build-alpine    Compile optimized for alpine linux.'
 	@echo '    make build-docker    Build inside an alpine docker container'
 	@echo '    make package         Build final docker image with just the go binary inside'
@@ -27,6 +28,9 @@ build:
 	@echo "building ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
 	go build -ldflags "-X main.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X main.VersionPrerelease=DEV" -o bin/${BIN_NAME}
+
+get-deps:
+	glide install
 {% if cookiecutter.use_docker == "y" %}
 build-alpine:
 	@echo "building ${BIN_NAME} ${VERSION}"
