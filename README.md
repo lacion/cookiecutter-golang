@@ -1,8 +1,6 @@
 # cookiecutter-golang
 
-.. image:: https://travis-ci.org/lacion/cookiecutter-golang.svg?branch=master
-     :target: https://travis-ci.org/lacion/cookiecutter-golang?branch=master
-     :alt: Build Status
+[![Build Status](https://travis-ci.org/lacion/cookiecutter-golang.svg?branch=master)](https://travis-ci.org/lacion/cookiecutter-golang)
 
 A Go project template for [cookiecutter](https://github.com/audreyr/cookiecutter), Use it to make a new project built from scratch.
 
