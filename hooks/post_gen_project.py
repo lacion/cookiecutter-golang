@@ -73,7 +73,16 @@ if '{{ cookiecutter.use_viper_config }}'.lower() != 'y':
 if '{{ cookiecutter.use_logrus_logging }}'.lower() != 'y':
     remove_logrus_files()
 
-# 4. Initialize Git (should be run after all file have been modified or deleted)
+# 4. Remove unused ci choice
+if '{{ cookiecutter.use_ci}}'.lower() == 'travis':
+    remove_file("circle.yml")
+elif '{{ cookiecutter.use_ci}}'.lower() == 'circle':
+    remove_file(".travis.yml")
+else:
+    remove_file(".travis.yml")
+    remove_file("circle.yml")
+
+# 5. Initialize Git (should be run after all file have been modified or deleted)
 if '{{ cookiecutter.use_git }}'.lower() == 'y':
     init_git()
 else:

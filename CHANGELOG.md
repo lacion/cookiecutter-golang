@@ -9,6 +9,7 @@ All enhancements and patches to Cookiecutter Golang will be documented in this f
 - added testing
 - viper config is now optional
 - logrus is now optional
+- choice for CI tools (travis, circle or none)
 
 ## [2016-12-20]
 ### changed

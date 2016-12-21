@@ -1,0 +1,9 @@
+language: go
+
+go:
+  - 1.7.x
+  - master
+
+install:
+  - go get -v github.com/Masterminds/glide 
+  - make get-deps
