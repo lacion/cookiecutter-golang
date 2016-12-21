@@ -47,8 +47,10 @@ func readViperConfig(appName string) *viper.Viper {
 	v.AutomaticEnv()
 
 	// global defaults
+	{% if cookiecutter.use_logrus_logging == "y" %}
 	v.SetDefault("json_logs", false)
 	v.SetDefault("loglevel", "debug")
+	{% endif %}
 
 	return v
 }
