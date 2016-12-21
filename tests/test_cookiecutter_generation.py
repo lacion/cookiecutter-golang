@@ -6,6 +6,7 @@ import sh
 
 import pytest
 from binaryornot.check import is_binary
+from io import open
 
 PATTERN = '{{(\s?cookiecutter)[.](.*?)}}'
 RE_OBJ = re.compile(PATTERN)
@@ -40,7 +41,7 @@ def check_paths(paths):
     for path in paths:
         if is_binary(path):
             continue
-        for line in open(path, 'r'):
+        for line in open(path, 'r', encoding="latin-1"):
             match = RE_OBJ.search(line)
             msg = 'cookiecutter variable not replaced in {}'
             assert match is None, msg.format(path)
