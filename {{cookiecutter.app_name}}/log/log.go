@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/config"
+	{% if cookiecutter.use_viper_config == "y" %}"github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/config"{% endif %}
 )
 
 // Logger defines a set of methods for writing application logs. Derived from and
@@ -48,6 +48,7 @@ func NewLogger(cfg config.Provider) *logrus.Logger {
 
 func newLogrusLogger(cfg config.Provider) *logrus.Logger {
 	l := logrus.New()
+	{% if cookiecutter.use_viper_config == "y" %}
 	if cfg.GetBool("json_logs") {
 		l.Formatter = new(logrus.JSONFormatter)
 	}
@@ -63,6 +64,7 @@ func newLogrusLogger(cfg config.Provider) *logrus.Logger {
 	default:
 		l.Level = logrus.DebugLevel
 	}
+	{% endif %}
 	return l
 }
 
