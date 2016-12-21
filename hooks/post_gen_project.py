@@ -5,7 +5,7 @@ Does the following:
 2. Deletes dockerfiles if not going to be used
 """
 import os
-from subprocess import call
+from subprocess import Popen
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -14,9 +14,14 @@ def init_git():
     """
     Initialises git on the new project folder
     """
-    call(["git", "init"])
-    call(["git", "add", "."])
-    call(["git", "commit", "-a", "-m", "Initial Commit."])
+    GIT_COMMANDS = [
+        ["git", "init"],
+        ["git", "add", "."],
+        ["git", "commit", "-a", "-m", "Initial Commit."]
+    ]
+    for command in GIT_COMMANDS:
+        git = Popen(command, cwd=PROJECT_DIRECTORY)
+        git.wait()
 
 
 def remove_docker_files():
