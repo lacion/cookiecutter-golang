@@ -7,4 +7,4 @@
 ## Contributors
 
 - Damon Zhao [se77en](https://github.com/se77en)
-- Tim Mathews [setimmathew](https://github.com/timmathews)
+- Tim Mathews [timmathew](https://github.com/timmathews)
