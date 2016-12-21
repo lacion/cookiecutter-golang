@@ -42,11 +42,21 @@ func init() {
 	defaultLogger = newLogrusLogger(config.Config())
 }
 
+{% if cookiecutter.use_viper_config == "y" %}
 func NewLogger(cfg config.Provider) *logrus.Logger {
 	return newLogrusLogger(cfg)
 }
+{% else %}
+func NewLogger() *logrus.Logger {
+	return newLogrusLogger()
+}
+{% endif %}
 
+{% if cookiecutter.use_viper_config == "y" %}
 func newLogrusLogger(cfg config.Provider) *logrus.Logger {
+{% else %}
+func newLogrusLogger() *logrus.Logger {
+{% endif %}
 	l := logrus.New()
 	{% if cookiecutter.use_viper_config == "y" %}
 	if cfg.GetBool("json_logs") {
