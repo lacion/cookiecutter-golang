@@ -6,6 +6,8 @@ All enhancements and patches to Cookiecutter Golang will be documented in this f
 - docker use now optional, you will get ask if you want to use docker while creating a project
 - git use now optional as well
 - added authors to credit contributors as well as general guidelines for contributing
+- added testing
+- viper config is now optional
 
 ## [2016-12-20]
 ### changed
