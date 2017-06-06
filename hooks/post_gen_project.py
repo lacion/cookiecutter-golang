@@ -40,7 +40,7 @@ def remove_docker_files():
     """
     Removes files needed for docker if it isn't going to be used
     """
-    for filename in ["Dockerfile", "Dockerfile.build"]:
+    for filename in ["Dockerfile",]:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))

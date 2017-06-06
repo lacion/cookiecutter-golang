@@ -22,6 +22,8 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 - Uses glide as only option for depency management
 - Only maintained 3rd party libraries are used.
 
+This project now uses docker multistage builds you need at least docker version v17.05.0-ce to use the docker file in this template, [you can read more about multistage builds here](https://www.critiqus.com/post/multi-stage-docker-builds/).
+
 ## Usage
 
 Let's pretend you want to create a project called "echoserver". Rather than starting from scratch maybe copying 

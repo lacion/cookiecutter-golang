@@ -16,7 +16,6 @@ help:
 	@echo '    make build           Compile the project.'
 	@echo '    make get-deps        runs glide install, mostly used for ci.'
 	{% if cookiecutter.use_docker == "y" %}@echo '    make build-alpine    Compile optimized for alpine linux.'
-	@echo '    make build-docker    Build inside an alpine docker container'
 	@echo '    make package         Build final docker image with just the go binary inside'
 	@echo '    make tag             Tag image created by package with latest, git commit and version'
 	@echo '    make test            Run tests on a compiled project.'
@@ -36,12 +35,6 @@ build-alpine:
 	@echo "building ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
 	go build -ldflags '-w -linkmode external -extldflags "-static" -X main.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X main.VersionPrerelease=VersionPrerelease=RC' -o bin/${BIN_NAME}
-
-build-docker:
-	@echo "building ${BIN_NAME} ${VERSION}"
-	docker build -t {{cookiecutter.app_name}}:build -f Dockerfile.build .
-	docker run --name={{cookiecutter.app_name}} -v $(GOPATH):/gopath/  {{cookiecutter.app_name}}:build
-	docker rm -f {{cookiecutter.app_name}}
 
 package:
 	@echo "building image ${BIN_NAME} ${VERSION} $(GIT_COMMIT)"
