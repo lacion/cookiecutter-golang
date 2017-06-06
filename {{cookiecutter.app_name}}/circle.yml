@@ -1,6 +1,6 @@
 machine:
   environment:
-    GODIST: "go1.7.linux-amd64.tar.gz"
+    GODIST: "go1.8.linux-amd64.tar.gz"
     IMPORT_PATH: "github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME"
   post:
     - mkdir -p download
