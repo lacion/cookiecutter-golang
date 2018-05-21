@@ -1,4 +1,0 @@
-package: github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
-import:
-{% if cookiecutter.use_viper_config == "y" %}- package: github.com/spf13/viper{% endif %}
-{% if cookiecutter.use_logrus_logging == "y" %}- package: github.com/Sirupsen/logrus{% endif %}
