@@ -14,7 +14,7 @@ help:
 	@echo
 	@echo 'Usage:'
 	@echo '    make build           Compile the project.'
-	@echo '    make get-deps        runs glide install, mostly used for ci.'
+	@echo '    make get-deps        runs dep ensure, mostly used for ci.'
 	{% if cookiecutter.use_docker == "y" %}@echo '    make build-alpine    Compile optimized for alpine linux.'
 	@echo '    make package         Build final docker image with just the go binary inside'
 	@echo '    make tag             Tag image created by package with latest, git commit and version'
@@ -29,7 +29,7 @@ build:
 	go build -ldflags "-X main.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X main.VersionPrerelease=DEV" -o bin/${BIN_NAME}
 
 get-deps:
-	glide install
+	dep ensure
 {% if cookiecutter.use_docker == "y" %}
 build-alpine:
 	@echo "building ${BIN_NAME} ${VERSION}"
