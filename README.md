@@ -7,7 +7,7 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 ## Features
 
 - Generous `Makefile` with management commands
-- Uses [glide](https://github.com/Masterminds/glide) for dependency management
+- Uses go dep
 
 ## Optional Integrations
 
@@ -19,7 +19,7 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 
 ## Constraints
 
-- Uses glide as only option for depency management
+- Uses dep for depency management
 - Only maintained 3rd party libraries are used.
 
 This project now uses docker multistage builds you need at least docker version v17.05.0-ce to use the docker file in this template, [you can read more about multistage builds here](https://www.critiqus.com/post/multi-stage-docker-builds/).

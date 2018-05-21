@@ -1,6 +1,10 @@
 # Change Log
 All enhancements and patches to Cookiecutter Golang will be documented in this file.
 
+## [2018-05-21]
+### changed
+- moved from glide to dep
+
 ## [2017-06-06]
 ### changed
 - updated CI templates to latest go versions
