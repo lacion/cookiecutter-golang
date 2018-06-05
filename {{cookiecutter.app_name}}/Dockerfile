@@ -4,7 +4,7 @@ FROM {{cookiecutter.docker_build_image}} AS build-stage
 LABEL app="build-{{cookiecutter.app_name}}"
 LABEL REPO="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}"
 
-ENV GOROOT=/usr/lib/go \
+ENV GOROOT=/usr/local/go \
     GOPATH=/gopath \
     GOBIN=/gopath/bin \
     PROJPATH=/gopath/src/github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
