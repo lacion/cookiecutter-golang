@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Golang will be documented in this f
 
 ## [2018-05-21]
 ### changed
+- upgraded circleci to 2.0
+- fixed issues with docker build
+
+## [2018-05-21]
+### changed
 - moved from glide to dep
 
 ## [2017-06-06]
