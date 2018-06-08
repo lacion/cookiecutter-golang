@@ -14,7 +14,7 @@ jobs:
               make
       - restore_cache:
           keys:
-            - v1-{{ .Branch }}
+            - {% raw %}v1-{{ .Branch }}{% endraw %}
           paths:
             - /caches/app.tar
       - run:
@@ -34,7 +34,7 @@ jobs:
             mkdir -p /caches
             docker save -o /caches/app.tar {{cookiecutter.docker_hub_username}}/{{cookiecutter.app_name}}
       - save_cache:
-          key: v1-{{ .Branch }}-{{ epoch }}
+          key:  {% raw %}v1-{{ .Branch }}-{{ epoch }}{% endraw %}
           paths:
             - /caches/app.tar
       - run:
