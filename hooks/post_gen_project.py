@@ -61,6 +61,14 @@ def remove_logrus_files():
         PROJECT_DIRECTORY, "log"
     ))
 
+def remove_circleci_files():
+    """
+    Removes files needed for viper config utils
+    """
+    shutil.rmtree(os.path.join(
+        PROJECT_DIRECTORY, ".circleci"
+    ))
+
 # 1. Remove Dockerfiles if docker is not going to be used
 if '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_docker_files()
@@ -75,12 +83,12 @@ if '{{ cookiecutter.use_logrus_logging }}'.lower() != 'y':
 
 # 4. Remove unused ci choice
 if '{{ cookiecutter.use_ci}}'.lower() == 'travis':
-    remove_file("circle.yml")
+    remove_circleci_files()
 elif '{{ cookiecutter.use_ci}}'.lower() == 'circle':
     remove_file(".travis.yml")
 else:
     remove_file(".travis.yml")
-    remove_file("circle.yml")
+    remove_circleci_files
 
 # 5. Initialize Git (should be run after all file have been modified or deleted)
 if '{{ cookiecutter.use_git }}'.lower() == 'y':
