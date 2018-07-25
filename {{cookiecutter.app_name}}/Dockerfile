@@ -1,4 +1,4 @@
-# Build St"{{cookiecutter.docker_hub_username}}/{{cookiecutter.app_name}}"age
+# Build Stage
 FROM {{cookiecutter.docker_build_image}} AS build-stage
 
 LABEL app="build-{{cookiecutter.app_name}}"
