@@ -61,6 +61,14 @@ def remove_logrus_files():
         PROJECT_DIRECTORY, "log"
     ))
 
+def remove_cobra_files():
+    """
+    Removes files needed for viper config utils
+    """
+    shutil.rmtree(os.path.join(
+        PROJECT_DIRECTORY, "cmd"
+    ))
+
 def remove_circleci_files():
     """
     Removes files needed for viper config utils
@@ -81,7 +89,11 @@ if '{{ cookiecutter.use_viper_config }}'.lower() != 'y':
 if '{{ cookiecutter.use_logrus_logging }}'.lower() != 'y':
     remove_logrus_files()
 
-# 4. Remove unused ci choice
+# 4. Remove cobra utils if not seleted
+if '{{ cookiecutter.use_cobra_cmd }}'.lower() != 'y':
+    remove_cobra_files()
+
+# 5. Remove unused ci choice
 if '{{ cookiecutter.use_ci}}'.lower() == 'travis':
     remove_circleci_files()
 elif '{{ cookiecutter.use_ci}}'.lower() == 'circle':
@@ -90,7 +102,7 @@ else:
     remove_file(".travis.yml")
     remove_circleci_files
 
-# 5. Initialize Git (should be run after all file have been modified or deleted)
+# 6. Initialize Git (should be run after all file have been modified or deleted)
 if '{{ cookiecutter.use_git }}'.lower() == 'y':
     init_git()
 else:

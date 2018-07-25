@@ -11,6 +11,7 @@ All enhancements and patches to Cookiecutter Golang will be documented in this f
 - upgraded circleci to 2.0
 - fixed issues with docker build
 - cobra cmd is now optional
+- make file now injects build time and git hash correctly.
 
 ## [2018-05-21]
 ### changed

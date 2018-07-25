@@ -8,10 +8,12 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 
 - Generous `Makefile` with management commands
 - Uses go dep
+- injects build time and git hash at build time.
 
 ## Optional Integrations
 
 - Can use [viper](https://github.com/spf13/viper) for env var config
+- Can use [cobra](https://github.com/spf13/cobra) for cli tools
 - Can use [logrus](https://github.com/sirupsen/logrus) for logging
 - Can creates dockerfile for building go binary and dockerfile for final go binary (no code in final container)
 - If docker is used adds docker management commands to makefile
@@ -62,6 +64,7 @@ use_docker [y]: y
 use_git [y]: y
 use_logrus_logging [y]: y
 use_viper_config [y]: y
+use_cobra_cmd [y]: y
 Select use_ci:
 1 - travis
 2 - circle
