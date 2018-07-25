@@ -1,6 +1,11 @@
 # Change Log
 All enhancements and patches to Cookiecutter Golang will be documented in this file.
 
+## [2018-07-25]
+### changed
+- fixed command to run test on the makefile
+- refactor version into something a bit more useful
+
 ## [2018-05-21]
 ### changed
 - upgraded circleci to 2.0

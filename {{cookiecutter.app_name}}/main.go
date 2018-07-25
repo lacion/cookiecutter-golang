@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/version"
 )
 
 func main() {
@@ -11,11 +12,11 @@ func main() {
 	flag.Parse()
 
 	if *versionFlag {
-		fmt.Println("Git Commit:", GitCommit)
-		fmt.Println("Version:", Version)
-		if VersionPrerelease != "" {
-			fmt.Println("Version PreRelease:", VersionPrerelease)
-		}
+		fmt.Println("Build Date:", version.BuildDate)
+        fmt.Println("Git Commit:", version.GitCommit)
+        fmt.Println("Version:", version.Version)
+        fmt.Println("Go Version:", version.GoVersion)
+        fmt.Println("OS / Arch:", version.OsArch)
 		return
 	}
 
