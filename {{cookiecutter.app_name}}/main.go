@@ -1,13 +1,17 @@
 package main
 
 import (
-	"flag"
+	{% if cookiecutter.use_cobra_cmd == "n" %}"flag"
 	"fmt"
-	"github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/version"
+	"github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/version"{% endif %}
+	{% if cookiecutter.use_cobra_cmd == "y" %}"github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/cmd"{% endif %}
 )
 
 func main() {
 
+    {% if cookiecutter.use_cobra_cmd == "y" %}
+    cmd.Execute()
+	{% else %}
 	versionFlag := flag.Bool("version", false, "Version")
 	flag.Parse()
 
@@ -19,6 +23,6 @@ func main() {
         fmt.Println("OS / Arch:", version.OsArch)
 		return
 	}
-
 	fmt.Println("Hello.")
+    {% endif %}
 }

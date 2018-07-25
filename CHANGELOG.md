@@ -10,6 +10,7 @@ All enhancements and patches to Cookiecutter Golang will be documented in this f
 ### changed
 - upgraded circleci to 2.0
 - fixed issues with docker build
+- cobra cmd is now optional
 
 ## [2018-05-21]
 ### changed
