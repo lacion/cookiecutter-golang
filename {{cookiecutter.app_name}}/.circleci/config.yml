@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            echo test # docker-compose -f ./docker-compose.test.yml up
+            make test # docker-compose -f ./docker-compose.test.yml up
       - run:
           name: Push application Docker image
           command: |
