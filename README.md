@@ -32,6 +32,8 @@ this template uses docker multistage builds to make images slimmer and container
 
 you can find the image dokcer file in this [repo](https://github.com/lacion/alpine-golang-buildimage) and more information about docker multistage builds in this [blog post](https://www.critiqus.com/post/multi-stage-docker-builds/)
 
+apps run under non root user and also with [dumb-init](https://github.com/Yelp/dumb-init)
+
 ## Usage
 
 Let's pretend you want to create a project called "echoserver". Rather than starting from scratch maybe copying 

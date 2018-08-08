@@ -31,4 +31,10 @@ WORKDIR /opt/{{cookiecutter.app_name}}/bin
 COPY --from=build-stage /go/src/github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/bin/{{cookiecutter.app_name}} /opt/{{cookiecutter.app_name}}/bin/
 RUN chmod +x /opt/{{cookiecutter.app_name}}/bin/{{cookiecutter.app_name}}
 
-CMD /opt/{{cookiecutter.app_name}}/bin/{{cookiecutter.app_name}}
+# Create appuser
+RUN adduser -D -g '' {{cookiecutter.app_name}}
+USER {{cookiecutter.app_name}}
+
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+
+CMD ["/opt/{{cookiecutter.app_name}}/bin/{{cookiecutter.app_name}}"]
