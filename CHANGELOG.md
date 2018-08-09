@@ -1,6 +1,10 @@
 # Change Log
 All enhancements and patches to Cookiecutter Golang will be documented in this file.
 
+## [2018-08-09]
+### changed
+- golang 1.11 beta3 option
+
 ## [2018-08-08]
 ### changed
 - run as not root user in docker
