@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Golang will be documented in this f
 
 ## [2018-08-09]
 ### changed
+- new leaner base image
+
+## [2018-08-09]
+### changed
 - golang 1.11 beta3 option
 
 ## [2018-08-08]
