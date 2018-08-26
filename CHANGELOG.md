@@ -1,6 +1,10 @@
 # Change Log
 All enhancements and patches to Cookiecutter Golang will be documented in this file.
 
+## [2018-08-26]
+### changed
+- build image now defaults to go version 1.11
+
 ## [2018-08-09]
 ### changed
 - new leaner base image
