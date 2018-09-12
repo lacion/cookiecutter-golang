@@ -7,7 +7,7 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 ## Features
 
 - Generous `Makefile` with management commands
-- Uses go dep
+- Uses go dep (with optional go module support *requires go 1.11*)
 - injects build time and git hash at build time.
 
 ## Optional Integrations
