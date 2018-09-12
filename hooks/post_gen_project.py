@@ -107,3 +107,9 @@ if '{{ cookiecutter.use_git }}'.lower() == 'y':
     init_git()
 else:
     remove_file(".gitignore")
+
+# 7. Remove files depending on selection of mod or dep
+if '{{ cookiecutter.go_mod_or_dep}}'.lower() == 'mod':
+    remove_file("Gopkg.toml")
+else:
+    remove_file("go.mod")

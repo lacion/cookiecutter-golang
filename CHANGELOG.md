@@ -1,6 +1,10 @@
 # Change Log
 All enhancements and patches to Cookiecutter Golang will be documented in this file.
 
+## [2018-09-12]
+### changed
+- added option to use go mod instead of dep
+
 ## [2018-08-26]
 ### changed
 - build image now defaults to go version 1.11
