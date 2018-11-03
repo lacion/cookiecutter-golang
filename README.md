@@ -7,7 +7,7 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 ## Features
 
 - Generous `Makefile` with management commands
-- Uses go dep (with optional go module support *requires go 1.11*)
+- Uses `go dep` (with optional go module support *requires go 1.11*)
 - injects build time and git hash at build time.
 
 ## Optional Integrations
@@ -15,24 +15,24 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter), Cookiecutter
 - Can use [viper](https://github.com/spf13/viper) for env var config
 - Can use [cobra](https://github.com/spf13/cobra) for cli tools
 - Can use [logrus](https://github.com/sirupsen/logrus) for logging
-- Can creates dockerfile for building go binary and dockerfile for final go binary (no code in final container)
+- Can create dockerfile for building go binary and dockerfile for final go binary (no code in final container)
 - If docker is used adds docker management commands to makefile
 - Option of TravisCI, CircleCI or None
 
 ## Constraints
 
-- Uses dep for depency management
+- Uses `dep` for dependency management
 - Only maintained 3rd party libraries are used.
 
-This project now uses docker multistage builds you need at least docker version v17.05.0-ce to use the docker file in this template, [you can read more about multistage builds here](https://www.critiqus.com/post/multi-stage-docker-builds/).
+This project now uses docker multistage builds, you need at least docker version v17.05.0-ce to use the docker file in this template, [you can read more about multistage builds here](https://www.critiqus.com/post/multi-stage-docker-builds/).
 
 ## Docker
 
-this template uses docker multistage builds to make images slimmer and container only the final project binary and assets with no source code whatsoever.
+This template uses docker multistage builds to make images slimmer and containers only the final project binary and assets with no source code whatsoever.
 
-you can find the image dokcer file in this [repo](https://github.com/lacion/alpine-golang-buildimage) and more information about docker multistage builds in this [blog post](https://www.critiqus.com/post/multi-stage-docker-builds/)
+You can find the image dokcer file in this [repo](https://github.com/lacion/alpine-golang-buildimage) and more information about docker multistage builds in this [blog post](https://www.critiqus.com/post/multi-stage-docker-builds/).
 
-apps run under non root user and also with [dumb-init](https://github.com/Yelp/dumb-init)
+Apps run under non root user and also with [dumb-init](https://github.com/Yelp/dumb-init).
 
 ## Usage
 
@@ -45,12 +45,12 @@ First, get Cookiecutter. Trust me, it's awesome:
 $ pip install cookiecutter
 ```
 
-alternatively you can install `cookiecutter` with homebrew:
+Alternatively, you can install `cookiecutter` with homebrew:
 ```console
 $ brew install cookiecutter
 ```
 
-finally to run it based on this template just:
+Finally, to run it based on this template, type:
 ```console
 $ cookiecutter https://github.com/lacion/cookiecutter-golang.git
 ```
