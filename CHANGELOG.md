@@ -1,6 +1,10 @@
 # Change Log
 All enhancements and patches to Cookiecutter Golang will be documented in this file.
 
+## [2019-04-18]
+### changed
+- updated golang docker base image version options
+
 ## [2018-09-12]
 ### changed
 - added option to use go mod instead of dep
