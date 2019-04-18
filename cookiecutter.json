@@ -6,7 +6,7 @@
     "docker_hub_username": "lacion",
     "docker_image": "lacion/alpine-base-image:latest",
     "docker_build_image": "lacion/alpine-golang-buildimage",
-    "docker_build_image_version": ["1.11", "1.10.3", "1.9.7"],
+    "docker_build_image_version": ["1.12.4", "1.11.9", "1.10.8", "1.9.7"],
     "go_mod_or_dep": ["dep", "mod"],
     "use_docker": "y",
     "use_git": "y",
