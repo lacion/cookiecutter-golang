@@ -100,7 +100,7 @@ elif '{{ cookiecutter.use_ci}}'.lower() == 'circle':
     remove_file(".travis.yml")
 else:
     remove_file(".travis.yml")
-    remove_circleci_files
+    remove_circleci_files()
 
 # 6. Remove files depending on selection of mod or dep
 if '{{ cookiecutter.go_mod_or_dep}}'.lower() == 'mod':
