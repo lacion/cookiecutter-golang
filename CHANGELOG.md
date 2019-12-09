@@ -1,6 +1,14 @@
 # Change Log
 All enhancements and patches to Cookiecutter Golang will be documented in this file.
 
+## [2019-12-09]
+### changed
+- updated golang docker base image version options
+- made go mod the default option
+- updated for gofmt -s format
+- updated code to be go vet valid
+- updated readme and contributors
+
 ## [2019-04-18]
 ### changed
 - updated golang docker base image version options

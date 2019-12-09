@@ -29,10 +29,12 @@ type Provider interface {
 
 var defaultConfig *viper.Viper
 
+// Config returns a default config providers
 func Config() Provider {
 	return defaultConfig
 }
 
+// LoadConfigProvider returns a configured viper instance
 func LoadConfigProvider(appName string) Provider {
 	return readViperConfig(appName)
 }

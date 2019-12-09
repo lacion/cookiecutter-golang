@@ -43,10 +43,12 @@ func init() {
 }
 
 {% if cookiecutter.use_viper_config == "y" %}
+// NewLogger returns a configured logrus instance
 func NewLogger(cfg config.Provider) *logrus.Logger {
 	return newLogrusLogger(cfg)
 }
 {% else %}
+// NewLogger returns logrus instance
 func NewLogger() *logrus.Logger {
 	return newLogrusLogger()
 }
@@ -78,13 +80,16 @@ func newLogrusLogger() *logrus.Logger {
 	return l
 }
 
+// Fields is a map string interface to define fields in the structured log
 type Fields map[string]interface{}
 
+// With allow us to define fields in out structured logs
 func (f Fields) With(k string, v interface{}) Fields {
 	f[k] = v
 	return f
 }
 
+// WithFields allow us to define fields in out structured logs
 func (f Fields) WithFields(f2 Fields) Fields {
 	for k, v := range f2 {
 		f[k] = v
@@ -92,6 +97,7 @@ func (f Fields) WithFields(f2 Fields) Fields {
 	return f
 }
 
+// WithFields allow us to define fields in out structured logs
 func WithFields(fields Fields) Logger {
 	return defaultLogger.WithFields(logrus.Fields(fields))
 }
