@@ -1,4 +1,9 @@
+{% if cookiecutter.use_docker == "y" %}
 .PHONY: build build-alpine clean test help default
+{% else %}
+.PHONY: build clean test help default
+{% endif %}
+
 
 BIN_NAME={{cookiecutter.app_name}}
 
