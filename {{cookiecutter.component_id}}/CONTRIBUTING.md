@@ -8,13 +8,13 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.app_name }}/issues.
+Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.component_id }}/issues.
 
 If you are reporting a bug, please include:
 
-* Your operating system name and version.
-* Any details about your local setup that might be helpful in troubleshooting.
-* Detailed steps to reproduce the bug.
+- Your operating system name and version.
+- Any details about your local setup that might be helpful in troubleshooting.
+- Detailed steps to reproduce the bug.
 
 ### Fix Bugs
 
@@ -28,50 +28,57 @@ is open to whoever wants to implement it.
 
 ### Write Documentation
 
-{{ cookiecutter.app_name }} could always use more documentation, whether as part of the
-official {{ cookiecutter.app_name }} docs, in docstrings, or even on the web in blog posts,
+{{ cookiecutter.component_id }} could always use more documentation, whether as part of the
+official {{ cookiecutter.component_id }} docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.app_name }}/issues.
+The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.component_id }}/issues.
 
 If you are proposing a feature:
 
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
+- Explain in detail how it would work.
+- Keep the scope as narrow as possible, to make it easier to implement.
+- Remember that this is a volunteer-driven project, and that contributions
   are welcome :)
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `{{ cookiecutter.app_name }}` for local development.
+Ready to contribute? Here's how to set up `{{ cookiecutter.component_id }}` for local development.
 
-1. Fork the `{{ cookiecutter.app_name }}` repo on GitHub.
+1. Fork the `{{ cookiecutter.component_id }}` repo on GitHub.
 2. Clone your fork locally::
+
 ```bash
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.app_name }}.git
+    $ git clone git@github.com:your_name_here/{{ cookiecutter.component_id }}.git
 ```
+
 3. Create a branch for local development::
+
 ```bash
     $ git checkout -b name-of-your-bugfix-or-feature
 ```
-   Now you can make your changes locally.
+
+Now you can make your changes locally.
 
 4. When you're done making changes, check that your changes pass the tests::
+
 ```bash
     $ make test
 ```
+
 6. Commit your changes and push your branch to GitHub::
+
 ```bash
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 ```
+
 7. Submit a pull request through the GitHub website.
 
-Pull Request Guidelines
------------------------
+## Pull Request Guidelines
 
 Before you submit a pull request, check that it meets these guidelines:
 

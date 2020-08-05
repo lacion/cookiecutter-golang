@@ -40,7 +40,7 @@ func LoadConfigProvider(appName string) Provider {
 }
 
 func init() {
-	defaultConfig = readViperConfig("{{cookiecutter.app_name|upper}}")
+	defaultConfig = readViperConfig("{{cookiecutter.component_id|upper}}")
 }
 
 func readViperConfig(appName string) *viper.Viper {

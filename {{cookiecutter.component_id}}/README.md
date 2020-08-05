@@ -1,4 +1,4 @@
-# {{cookiecutter.app_name}}
+# {{cookiecutter.component_id}}
 
 {{cookiecutter.project_short_description}}
 
@@ -10,9 +10,9 @@ Running it then should be as simple as:
 
 ```console
 $ make
-$ ./bin/{{cookiecutter.app_name}}
+$ ./bin/{{cookiecutter.component_id}}
 ```
 
 ### Testing
 
-``make test``
+`make test`

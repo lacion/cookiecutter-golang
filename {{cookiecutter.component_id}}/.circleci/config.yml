@@ -32,7 +32,7 @@ jobs:
           name: Save Docker image layer cache
           command: |
             mkdir -p /caches
-            docker save -o /caches/app.tar {{cookiecutter.docker_hub_username}}/{{cookiecutter.app_name}}
+            docker save -o /caches/app.tar {{cookiecutter.docker_hub_username}}/{{cookiecutter.component_id}}
       - save_cache:
           key:  {% raw %}v1-{{ .Branch }}-{{ epoch }}{% endraw %}
           paths:
