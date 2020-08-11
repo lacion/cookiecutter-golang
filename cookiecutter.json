@@ -8,7 +8,7 @@
   "docker_build_image_version": ["alpine"],
   "go_mod_or_dep": "mod",
   "use_docker": "n",
-  "use_git": "y",
+  "use_git": "n",
   "use_logrus_logging": "y",
   "use_viper_config": "y",
   "use_cobra_cmd": "y",
