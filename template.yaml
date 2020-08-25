@@ -5,8 +5,8 @@ metadata:
   title: Golang Microservice
   description: Create a Golang repo with this template built by members of the Go community
   tags:
-    - Experimental
-    - Go
+    - experimental
+    - go
 spec:
   owner: web@example.com
   templater: cookiecutter
