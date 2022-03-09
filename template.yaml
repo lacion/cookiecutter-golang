@@ -80,36 +80,36 @@ spec:
             - circle
             - none
           default: github
-      - title: Who's gonna own it?
-        description: Pick the group or user in the catalog that will own this component
-        required:
-          - owner
-        properties:
-          owner:
-            title: Owner
-            type: string
-            description: Owner of the component
-            ui:field: OwnerPicker
-            ui:options:
-              allowedKinds:
-                - Group
-      - title: And where are we saving it?
-        description: Pick the repository that we will create and push the repo to
-        required:
-          - repoUrl
-        properties:
-          repoUrl:
-            title: Repository Location
-            type: string
-            ui:field: RepoUrlPicker
-            ui:options:
-              allowedHosts:
-                - github.com
+    - title: Who's gonna own it?
+      description: Pick the group or user in the catalog that will own this component
+      required:
+        - owner
+      properties:
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: And where are we saving it?
+      description: Pick the repository that we will create and push the repo to
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
 
   steps:
     - id: fetch
       action: fetch:cookiecutter
-       input:
+      input:
         url: ./skeleton
         values:
           component_id: ${{ parameters.component_id }}
