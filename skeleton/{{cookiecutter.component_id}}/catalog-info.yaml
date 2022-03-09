@@ -5,11 +5,8 @@ metadata:
   description: {{cookiecutter.project_short_description}}
   annotations: 
     github.com/project-slug: {{cookiecutter.destination.git.owner + "/" + cookiecutter.destination.git.name}}
-    backstage.io/source-ref: {{cookiecutter.storePath | jsonify}}
     backstage.io/techdocs-ref: url:{{cookiecutter.storePath}}
-{%- if cookiecutter.use_ci == "github" %}
-    backstage.io/github-actions-id: {{cookiecutter.storePath}}
-{%- endif %}
+
 spec:
   type: service
   lifecycle: experimental

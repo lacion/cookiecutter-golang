@@ -1,4 +1,4 @@
-apiVersion: backstage.io/v1alpha1
+apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: golang-starter
@@ -9,74 +9,141 @@ metadata:
     - go
 spec:
   owner: web@example.com
-  templater: cookiecutter
   type: service
-  path: "."
-  schema:
-    required:
-      - component_id
-      - project_short_description
-      - docker_image
-      - docker_build_image
-      - docker_build_image_version
-      - use_logrus_logging
-      - use_viper_config
-      - use_ci
-      - use_cobra_cmd
-    properties:
-      component_id:
-        title: Name
-        type: string
-        description: Unique name of the component
-      project_short_description:
-        title: Description
-        type: string
-        description: Description of the component
-      docker_image:
-        title: Docker Image
-        type: string
-        description: The docker base image to use when running the service
-        default: alpine-base-image:latest
-      docker_build_image:
-        title: Docker Build Image
-        type: string
-        description: The docker base image to use when building the service
-        default: golang
-      docker_build_image_version:
-        title: Docker Build Image Version
-        description: The image version to use when building the service
-        type: string
-        enum:
-          - alpine
-        default: alpine
-      use_logrus_logging:
-        title: Enable Logrus Logging (https://github.com/sirupsen/logrus)
-        type: string
-        enum:
-          - "y"
-          - "n"
-        default: "y"
-      use_viper_config:
-        title: Enable Viper Config (https://github.com/spf13/viper)
-        type: string
-        enum:
-          - "y"
-          - "n"
-        default: "y"
-      use_cobra_cmd:
-        title: Enable Cobra CLI Tools (https://github.com/spf13/cobra)
-        type: string
-        enum:
-          - "y"
-          - "n"
-        default: "y"
-      use_ci:
-        title: Add CI
-        description: Add a CI config to the repo, Gitub Actions, Circle or Travis are the only supported right now
-        type: string
-        enum:
-          - github
-          - travis
-          - circle
-          - none
-        default: github
+  parameters:
+    - title: Some information for Cookiecutter
+      description: We need some values for the golang template
+      required:
+        - component_id
+        - project_short_description
+        - docker_image
+        - docker_build_image
+        - docker_build_image_version
+        - use_logrus_logging
+        - use_viper_config
+        - use_ci
+        - use_cobra_cmd
+      properties:
+        component_id:
+          title: Name
+          type: string
+          description: Unique name of the component
+        project_short_description:
+          title: Description
+          type: string
+          description: Description of the component
+        docker_image:
+          title: Docker Image
+          type: string
+          description: The docker base image to use when running the service
+          default: alpine-base-image:latest
+        docker_build_image:
+          title: Docker Build Image
+          type: string
+          description: The docker base image to use when building the service
+          default: golang
+        docker_build_image_version:
+          title: Docker Build Image Version
+          description: The image version to use when building the service
+          type: string
+          enum:
+            - alpine
+          default: alpine
+        use_logrus_logging:
+          title: Enable Logrus Logging (https://github.com/sirupsen/logrus)
+          type: string
+          enum:
+            - "y"
+            - "n"
+          default: "y"
+        use_viper_config:
+          title: Enable Viper Config (https://github.com/spf13/viper)
+          type: string
+          enum:
+            - "y"
+            - "n"
+          default: "y"
+        use_cobra_cmd:
+          title: Enable Cobra CLI Tools (https://github.com/spf13/cobra)
+          type: string
+          enum:
+            - "y"
+            - "n"
+          default: "y"
+        use_ci:
+          title: Add CI
+          description: Add a CI config to the repo, Gitub Actions, Circle or Travis are the only supported right now
+          type: string
+          enum:
+            - github
+            - travis
+            - circle
+            - none
+          default: github
+    - title: Who's gonna own it?
+      description: Pick the group or user in the catalog that will own this component
+      required:
+        - owner
+      properties:
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: And where are we saving it?
+      description: Pick the repository that we will create and push the repo to
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  steps:
+    - id: fetch
+      action: fetch:cookiecutter
+       input:
+        url: ./skeleton
+        values:
+          component_id: ${{ parameters.component_id }}
+          project_short_description: ${{ parameters.project_short_description }}
+          docker_image: ${{ parameters.docker_image }}
+          docker_build_image: ${{ parameters.docker_build_image }}
+          docker_build_image_version: ${{ parameters.docker_build_image_version }}
+          use_logrus_logging: ${{ parameters.use_logrus_logging }}
+          use_viper_config: ${{ parameters.use_viper_config }}
+          use_cobra_cmd: ${{ parameters.use_cobra_cmd }}
+          use_ci: ${{ parameters.use_ci }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          owner: ${{ parameters.owner }}
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts:
+          - github.com
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: /catalog-info.yaml
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
