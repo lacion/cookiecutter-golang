@@ -108,6 +108,7 @@ spec:
 
   steps:
     - id: fetch
+      name: Create Skeleton
       action: fetch:cookiecutter
       input:
         url: ./skeleton
