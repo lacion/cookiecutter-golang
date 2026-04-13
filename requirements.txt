@@ -1,7 +1,7 @@
 cookiecutter==2.1.1
 
 # Testing
-pytest==3.0.5
+pytest==9.0.3
 tox==2.5.0
 sh==1.12.8
 pytest-cookies==0.2.0
